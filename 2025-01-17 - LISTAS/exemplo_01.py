@@ -13,10 +13,18 @@
    Lembre que o programa não deverá aceitar nome de aluno vazio e só deverá aceitar notas 
    entre 0 e 100. Lembre também que as notas são do tipo INTEIRO.
 '''
+import os, keyboard
 
 lstAlunos = list()
 
+strAviso  = '\nPressione qualquer tecla para continuar...'
+
+# ----------------------------------------------------------------------
+# Laço para digitar os dados dos alunos
 while True:
+   # Limpando a tela
+   os.system('cls' if os.name == 'nt' else 'clear')
+
    # Digitando o nome do aluno
    strNome = input('Digite o nome do aluno: ').upper().strip()
 
@@ -25,29 +33,45 @@ while True:
 
    # Verificando se o nome é vazio
    if strNome == '':
-      print('Nome do aluno não pode ser vazio!')
+      print(f'Nome do aluno não pode ser vazio!{strAviso}')
+      keyboard.read_event()
       continue
 
-   # Digitando a primeira nota do aluno
-   intNota1 = int(input('Digite a primeira nota do aluno: '))
+   # Digitando a primeira nota do aluno e Verificando se a nota está entre 0 e 100
+   while True:
+      intNota1 = int(input('Digite a primeira nota do aluno: '))
+      if intNota1 < 0 or intNota1 > 100:
+         print(f'Nota inválida! A nota deve estar entre 0 e 100!{strAviso}')
+         keyboard.read_event()
+      else:
+         break
 
-   # Verificando se a nota está entre 0 e 100
-   if intNota1 < 0 or intNota1 > 100:
-      print('Nota inválida! A nota deve estar entre 0 e 100.')
-      continue
-
-   # Digitando a segunda nota do aluno
-   intNota2 = int(input('Digite a segunda nota do aluno: '))
-
-   # Verificando se a nota está entre 0 e 100
-   if intNota2 < 0 or intNota2 > 100:
-      print('Nota inválida! A nota deve estar entre 0 e 100.')
-      continue   
+   # Digitando a segunda nota do aluno e Verificando se a nota está entre 0 e 100
+   while True:
+      intNota2 = int(input('Digite a segunda nota do aluno: '))
+      if intNota2 < 0 or intNota2 > 100:
+         print(f'Nota inválida! A nota deve estar entre 0 e 100!{strAviso}')
+         keyboard.read_event()
+      else:
+         break   
 
    # Adicionando os dados do aluno na lista
    lstAlunos.append([strNome, intNota1, intNota2])
 
 
-# Exbindo os dados dos alunos
+# ----------------------------------------------------------------------
+# Laço para exibir os dados dos alunos e calcular a média e a situação de cada aluno
 for aluno in lstAlunos:
-   print(aluno)
+   # Calculando a média do aluno
+   fltMedia = (aluno[1]*2 + aluno[2]*3) / 5
+
+   # Verificando a situação do aluno
+   strSituacao = 'REPROVADO'
+   if fltMedia >= 60: strSituacao = 'APROVADO'
+
+   # Exibindo os dados do aluno
+   print(f'Aluno: {aluno[0]}'      , end=' ')
+   print(f'Nota 1: {aluno[1]}'     , end=' ')
+   print(f'Nota 2: {aluno[2]}'     , end=' ')
+   print(f'Média: {fltMedia:.0f}'  , end=' ')
+   print(f'Situação: {strSituacao}')
