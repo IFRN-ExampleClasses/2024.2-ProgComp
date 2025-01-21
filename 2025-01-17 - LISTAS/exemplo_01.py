@@ -70,8 +70,4 @@ for aluno in lstAlunos:
    if fltMedia >= 60: strSituacao = 'APROVADO'
 
    # Exibindo os dados do aluno
-   print(f'Aluno: {aluno[0]}'      , end=' ')
-   print(f'Nota 1: {aluno[1]}'     , end=' ')
-   print(f'Nota 2: {aluno[2]}'     , end=' ')
-   print(f'Média: {fltMedia:.0f}'  , end=' ')
-   print(f'Situação: {strSituacao}')
+   print(f'Aluno: {aluno[0]} | Nota 1: {aluno[1]} | Nota 2: {aluno[2]} | Média: {fltMedia:.0f} | Situação: {strSituacao}')
