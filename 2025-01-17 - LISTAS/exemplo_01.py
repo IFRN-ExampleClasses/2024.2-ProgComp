@@ -39,7 +39,7 @@ while True:
 
    # Digitando a primeira nota do aluno e Verificando se a nota está entre 0 e 100
    while True:
-      intNota1 = int(input('Digite a primeira nota do aluno: '))
+      intNota1 = int(input('Digite nota da Etapa 1: '))
       if intNota1 < 0 or intNota1 > 100:
          print(f'Nota inválida! A nota deve estar entre 0 e 100!{strAviso}')
          keyboard.read_event()
@@ -48,7 +48,7 @@ while True:
 
    # Digitando a segunda nota do aluno e Verificando se a nota está entre 0 e 100
    while True:
-      intNota2 = int(input('Digite a segunda nota do aluno: '))
+      intNota2 = int(input('Digite nota da Etapa 2: '))
       if intNota2 < 0 or intNota2 > 100:
          print(f'Nota inválida! A nota deve estar entre 0 e 100!{strAviso}')
          keyboard.read_event()
@@ -67,7 +67,7 @@ for aluno in lstAlunos:
 
    # Verificando a situação do aluno
    strSituacao = 'REPROVADO'
-   if fltMedia >= 60: strSituacao = 'APROVADO'
+   if fltMedia >= 59.5: strSituacao = 'APROVADO'
 
    # Exibindo os dados do aluno
-   print(f'Aluno: {aluno[0]} | Nota 1: {aluno[1]} | Nota 2: {aluno[2]} | Média: {fltMedia:.0f} | Situação: {strSituacao}')
+   print(f'Aluno: {aluno[0]} | E1: {aluno[1]} | E2: {aluno[2]} | MF: {fltMedia:.0f} ({strSituacao})')
