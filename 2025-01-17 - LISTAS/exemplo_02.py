@@ -54,7 +54,7 @@ while True:
 # ----------------------------------------------------------------------
 # Ordenar a lista em ordem alfabética de nomes
 # TODO: Implementar a ordenação da lista de alunos em ordem alfabética de nomes
-
+lstAlunos.sort(key=lambda x: x[0])
 
 # ----------------------------------------------------------------------
 # Laço para exibir os dados dos alunos e calcular a média e a situação de cada aluno
