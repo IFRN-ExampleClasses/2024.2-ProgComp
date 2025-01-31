@@ -8,7 +8,7 @@
    
    a, b = 1, 1
    
-   lstFibonacci = list
+   lstFibonacci = list()
    for _ in range(n):
       lstFibonacci.append(a)
       a, b = b, a + b
