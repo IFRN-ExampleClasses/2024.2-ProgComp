@@ -30,17 +30,12 @@ arqEntrada.close()
 # Criando um set contendo as regiões
 setRegioes = set(map(lambda x: x[2], lstConteudo))
 
-# Criar o conteúdo do arquivo de saída
-strConteudo = ''
+# Criar o arquivo de saída
+strNomeArquivo = f'{strDirAtual}\\populacao_capitais_regiao.csv'
+arqSaida = open(strNomeArquivo, 'w', encoding='utf-8')
+arqSaida.write('Região;População\n')
 for strRegiao in setRegioes:
    lstFiltro     = filter(lambda x: x[2] == strRegiao, lstConteudo)
    intPolulacao  = sum(map(lambda x: x[3], lstFiltro))
-   strConteudo  += f'{strRegiao};{intPolulacao}\n'
-
-# Definir o nome do arquivo de saída
-strNomeArquivo = f'{strDirAtual}\\populacao_capitais_regiao.csv'
-
-# Abrir o arquivo para escrita
-arqSaida = open(strNomeArquivo, 'w', encoding='utf-8')
-arqSaida.writelines(strConteudo)
+   arqSaida.write(f'{strRegiao};{intPolulacao}\n')
 arqSaida.close()
