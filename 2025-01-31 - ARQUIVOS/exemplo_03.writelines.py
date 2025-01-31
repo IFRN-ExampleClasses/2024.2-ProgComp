@@ -27,9 +27,6 @@ while True:
 # Fechar o arquivo
 arqEntrada.close()
 
-# Imprimir o conteúdo do arquivo
-#print(lstConteudo)
-
 # Criando um set contendo as regiões
 setRegioes = set(map(lambda x: x[2], lstConteudo))
 print(set(setRegioes))
