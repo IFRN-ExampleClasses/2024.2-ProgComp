@@ -6,11 +6,13 @@
    # ------------------------------------------------------------
    n = int(input('Digite o valor de n: '))
    
-   lstFibonacci = [0, 1]
+   a, b = 1, 1
    
-   for i in range(2, n):
-      lstFibonacci.append(fib[i-1] + fib[i-2])
-   
+   lstFibonacci = list
+   for _ in range(n):
+      lstFibonacci.append(a)
+      a, b = b, a + b
+
    print(lstFibonacci)
    # ------------------------------------------------------------
    
