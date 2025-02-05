@@ -25,3 +25,27 @@
    e depois escreva o resultado em um arquivo chamado 'resultados.csv' escrevendo cada 
    par (x e fx) em uma linha e separando x e fx por ;.
 '''
+import os
+
+# Solicitando os coeficientes da equação da reta
+intCoefAng = int(input('Informe o valor de a (coeficiente angular).: '))
+intCoefLin = int(input('Informe o valor de b (coeficiente linear)..: '))
+
+# Solicitando os valores inicial e final de x
+intXInicial = int(input('Informe o valor inicial de x.: '))
+intXFinal   = int(input('Informe o valor final de x...: '))
+
+# Gerando a lista com os pares [x, f(x)]
+lstFX = [[x, intCoefAng * x + intCoefLin] for x in range(intXInicial, intXFinal + 1)]
+
+# Obtendo o diretório atual
+strDirAtual = os.path.dirname(__file__)
+
+# Escrevendo o resultado no arquivo 'resultados.csv'
+arqSaida = open(f'{strDirAtual}\\resultados.csv', 'w')
+for lstPar in lstFX:
+    arqSaida.write(f'{lstPar[0]};{lstPar[1]}\n')
+arqSaida.close()
+
+# Exibindo a lista gerada
+print(lstFX)
