@@ -9,7 +9,7 @@
 
    O arquivo 'valores_saida.txt' deve conter em cada linha o valor lido e seu fatorial separados por ;
 '''
-import os ,math
+import os, math
 
 # Obtendo o diretório atual
 strDirAtual = os.path.dirname(__file__)
