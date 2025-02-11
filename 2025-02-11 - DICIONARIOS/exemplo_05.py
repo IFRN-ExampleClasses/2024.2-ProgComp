@@ -1,13 +1,16 @@
 '''
    EXEMPLO 05:
 
-   Usando o dicionário dictAlunos faça um programa que solicite ao usuário a matrícula de um 
-   aluno e as duas notas da disciplina e adicione os valores digitados no dicionário.
-
-   O programa deve continuar solicitando a matrícula e as notas até que o usuário digite a
-   matrícula 0.
-
-   Ao final, o programa deve exibir o dicionário dictAlunos.
+   Adicionando um registro de pessoa em uma lista e em um dicionário.
 '''
 
-dictAlunos = dict()
+lstPessoas  = list()  
+dictPessoas = dict()
+
+strCPF      = input('Digite o CPF: ')
+strNome     = input('Digite o Nome: ')
+strDataNasc = input('Digite a Data de Nascimento: ')
+
+lstPessoas.append([strCPF, strNome, strDataNasc])
+
+dictPessoas[strCPF] = {'nome': strNome, 'data_nascimento': strDataNasc}
