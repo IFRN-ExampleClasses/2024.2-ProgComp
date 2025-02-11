@@ -1,5 +1,5 @@
 '''
-   EXEMPLO 06:
+   EXEMPLO 05:
 
    Usando o dicionário dictAlunos faça um programa que solicite ao usuário a matrícula de um 
    aluno e as duas notas da disciplina e adicione os valores digitados no dicionário.
