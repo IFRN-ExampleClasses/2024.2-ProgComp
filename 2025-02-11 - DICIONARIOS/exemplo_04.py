@@ -1,9 +1,10 @@
 '''
-   EXEMPLO 01:
+   EXEMPLO 04:
 
-   Faça um programa que solicite um CPF e retorne o nome e a data de nascimento da pessoa.
-
-   Caso o CPF não seja encontrado, exiba a mensagem 'CPF não encontrado'.
+   A partir da lista lstPessoas, gere um dicionário onde a chave é o CPF da pessoa (posição 0) 
+   de cada sub-lista e o valor é um dicionário onde tem a chave 'nome' e seu valor é o 
+   nome da pessoa (posição 1 da sub-lista) e outra chave 'data_nascimento' e seu valor é a 
+   data de nascimento (posição 2 da sub-lista).
 '''
 
 lstPessoas = [
@@ -19,13 +20,8 @@ lstPessoas = [
     ['88990011223', 'Felipe Rodrigues', '14/08/1980']
 ]
 
-strCPF = input('Digite o CPF: ')
+# Criando o dicionário com dicionários como valores
+dictPessoas = {pessoa[0]: {'nome': pessoa[1], 'data_nascimento': pessoa[2]} 
+               for pessoa in lstPessoas}
 
-for lstPessoa in lstPessoas:
-    if strCPF == lstPessoa[0]:
-        print(f'Nome: {lstPessoa[1]}')
-        print(f'Data de Nascimento: {lstPessoa[2]}')
-        break
-else:
-    print('CPF não encontrado')
-    
+print(dictPessoas)
