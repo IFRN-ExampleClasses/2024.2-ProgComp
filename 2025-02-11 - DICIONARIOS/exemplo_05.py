@@ -6,6 +6,8 @@
 
    O programa deve continuar solicitando a matrícula e as notas até que o usuário digite a
    matrícula 0.
+
+   Ao final, o programa deve exibir o dicionário dictAlunos.
 '''
 
 dictAlunos = dict()
