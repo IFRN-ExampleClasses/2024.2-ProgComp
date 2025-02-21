@@ -24,16 +24,26 @@ if response.status_code != 200:
 lstDadosGeral = response.json()
 
 # Chaves que deseja extrair do dicionário de dados
-lstChaves = ['codigo', 'descricao', 'carga_horaria', 'diretoria', 'eixo', 'modalidade', 'natureza_participacao']
+dictChaves = {'codigo', 'descricao', 'carga_horaria', 'diretoria', 'eixo', 'modalidade', 'natureza_participacao'}
 
 # Lista que armazenará os dados dos cursos
 lstDadosCursos = [
-    {chave: dicionario[chave] for chave in lstChaves if chave in dicionario} 
+    {chave: dicionario[chave] for chave in dictChaves if chave in dicionario} 
     for dicionario in lstDadosGeral
 ]
 
-# Exibe os dados dos cursos
-for curso in lstDadosCursos:
-   print(f'\n{curso}')
+# Transforma a lista em um dicionário, usando 'codigo' como chave
+dictDadosCursos = {dicionario['codigo']: dicionario for dicionario in lstDadosCursos}
 
-print(f'\n{len(lstDadosCursos)} Cursos listados...\n')
+# Campus desejado 
+strCampus = 'SC'
+
+dictCursosCampus = dict(filter(
+    lambda dicionario: dicionario[1]['diretoria'].split('/')[-1].strip() == strCampus,
+    dictDadosCursos.items()))
+
+# Exibe os dados dos cursos
+for k, v in dictCursosCampus.items():   
+   print(f'\n{k}: {v}')
+
+print(f'\n{len(dictCursosCampus)} Cursos listados...\n')
