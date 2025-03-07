@@ -1,5 +1,6 @@
 import math
 
+# ------------------------------------------------------------------------
 def delta(valorA, valorB, valorC):
    if not isinstance(valorA, (int, float)) or not isinstance(valorB, (int, float)) or not isinstance(valorC, (int, float)):
       return None
@@ -9,9 +10,10 @@ def delta(valorA, valorB, valorC):
 
    valorDelta = valorB**2 - 4*valorA*valorC
    
-   return valorB**2 - 4*valorA*valorC
+   return valorDelta
 
 
+# ------------------------------------------------------------------------
 def raizesEq2Grau(valorA, valorB, valorDelta):
    if not isinstance(valorA, (int, float)) or not isinstance(valorB, (int, float)) or not isinstance(valorDelta, (int, float)):
       return None
